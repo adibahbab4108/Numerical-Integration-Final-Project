@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=fill, initial-scale=1.0" />
+  <title>Adib's Numerical Integration- Documentation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="px-5 py-4">
+  <header class="container">
+    <a href="/index.html" class="text-md bg-blue-600 text-white px-6 py-2 rounded-md">Go Back</a>
+  </header>
+
+  <article class="text-md mt-5">
+    <h1 class="text-2xl font-semibold">
+      Adib's- Numerical Integration Calculator Documentation
+    </h1>
+
+    <div class="mt-2">
+      <h2 class="text-lg font-semibold">Introduction</h2>
+      <p class="text-base my-2">
+        This project is designed to perform numerical integration using three different methods:
+        the Trapezoidal Rule, Simpson's 1/3 Rule, and the Simpson's 1/3 Rule. The calculator takes
+        integration bounds as input, and then applies each of these rules to approximate the integral. The results from
+        the three methods are displayed side by side, allowing users to compare the accuracy and efficiency of each
+        approach. This comparison not only highlights the strengths and weaknesses of the different numerical techniques
+        but also provides valuable insights into their practical applications. Whether for educational purposes or
+        practical problem-solving, this Numerical Integration Calculator serves as a versatile and user-friendly
+        resource for anyone working with integral approximations.
+      </p>
+    </div>
+
+    <div>
+      <h2 class="text-lg font-semibold">Features</h2>
+      <p class="my-2 ml-2">
+        1. Input Upper limit, lower limit and interval <br />
+        2. Analyze Button <br />
+        3. Reset Button <br />
+        4. Result Comparison with PieChart and BarChart
+      </p>
+    </div>
+
+    <div class="my-3">
+      <h2 class="text-lg font-semibold">Implemented Methods</h2>
+      <p class="ml-2">
+        1. Trapezoidal Rule<br />
+        2. Simpon’s 1/3 (One-third) Rule <br />
+        3. Simpson’s 3/8 (Three-eight) Rule <br />
+      </p>
+    </div>
+
+    <div>
+      <h2 class="text-lg font-semibold">Graphical Analysis</h2>
+      <p class="ml-2">
+
+        1. Pie Chart - Iteration Convergence Shows the percentage of
+        iterations needed for convergence. <br />
+        2. Bar Chart - Time Taken Displays the time taken for each method to
+        solve the system.
+      </p>
+    </div>
+
+  </article>
+
+  <div class="mb-8">
+    <h2 class="text-2xl font-bold mb-4">General Quadrature formula for equidistant ordinates</h2>
+
+    <p class="mb-4">
+      Suppose y = f(x) is a function whose values are known at equidistant values of x i.e. f(x 0 ) = y 0 ,
+      f(x0 +h) = y 1 , f(x0 +2h) = y 2 , ……., f(x 0 +nh) = yn.
+      To evaluate I, we have to replace f(x) by a suitable interpolation formula. Let the interval
+      [a, b] be divided into n subintervals with the division points a = x0 &lt; x0+h &lt; …… &lt; x0 +nh = b
+      where h is the width of each subinterval.
+    </p>
+
+    <p class="mb-4">Approximating f(x) by Newton’s forward interpolation formula, we get</p>
+
+    <div class="mb-4">
+      <pre class="bg-gray-200 p-2 rounded-md">
+                <code>
+                  I = h[ny<sub>0</sub> + (n<sup>2</sup>/2)Δy<sub>0</sub> + (n<sup>3</sup>/3-n<sup>2</sup>/2)Δ<sup>2</sup>y<sub>0</sub>/2! + (n<sup>4</sup>/4-n<sup>3</sup>+n<sup>2</sup>)Δ<sup>3</sup>y<sub>0</sub>/3! +…]
+                </code>
+                <code>
+                  where h = (b-a)/n, y0 = f(a), yn = f(b)
+                </code>
+            </pre>
+    </div>
+
+  </div>
+  <div class="mb-8">
+    <h2 class="text-2xl font-bold mb-4">Trapezoidal Rule</h2>
+
+    <p class="mb-4">
+      Substituting n =1 in the general quadrature formula and neglecting all differences greater than
+      the first, we get
+    </p>
+
+    <div class="mb-4">
+      <pre class="bg-gray-200 p-2 rounded-md">
+        I = h/2[y<sub>0</sub> + 2(y<sub>1</sub>+ y<sub>2</sub> + ………. + y<sub>n-1</sub>) + y<sub>n</sub>]
+            </pre>
+    </div>
+
+    <p class="mb-4">
+      Let's consider the example:
+    </p>
+
+    <div class="mb-4">
+      <div class="container mx-auto px-4 py-8">
+        <!-- <h1 class="text-3xl font-bold text-gray-800 mb-4">Example: Calculate the Value of the Integral</h1> -->
+        <p class="text-gray-600 mb-6">Calculate the value of ∫<sub>0</sub><sup>1</sup> x / (1 + x) dx correct up to 3
+          significant figures taking six intervals by trapezoidal rule.</p>
+
+        <p class="text-gray-600 mb-4"><strong>Solution:</strong> Here we have, f(x) = x / (1 + x), a = 0, b = 1, n = 6
+        </p>
+        <p class="text-gray-600 mb-4">∴ h = (b - a) / n = (1 - 0) / 6 = 1 / 6</p>
+
+        <table class="w-full table-auto text-center border-collapse border border-gray-300">
+          <thead>
+            <tr>
+              <th class="px-4 py-2 bg-gray-200 text-gray-800">X</th>
+              <th class="px-4 py-2 bg-gray-200 text-gray-800">0</th>
+              <th class="px-4 py-2 bg-gray-200 text-gray-800">1/6</th>
+              <th class="px-4 py-2 bg-gray-200 text-gray-800">2/6</th>
+              <th class="px-4 py-2 bg-gray-200 text-gray-800">3/6</th>
+              <th class="px-4 py-2 bg-gray-200 text-gray-800">4/6</th>
+              <th class="px-4 py-2 bg-gray-200 text-gray-800">5/6</th>
+              <th class="px-4 py-2 bg-gray-200 text-gray-800">6/6</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="px-4 py-2">y = f(x)</td>
+              <td class="px-4 py-2">0.0 <br> y<sub>0</sub></td>
+              <td class="px-4 py-2">0.14286 <br> y<sub>1</sub></td>
+              <td class="px-4 py-2">0.25000 <br> y<sub>2</sub></td>
+              <td class="px-4 py-2">0.33333 <br> y<sub>3</sub></td>
+              <td class="px-4 py-2">0.40000 <br> y<sub>4</sub></td>
+              <td class="px-4 py-2">0.45454 <br> y<sub>5</sub></td>
+              <td class="px-4 py-2">0.50000 <br> y<sub>6</sub></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="text-gray-600 mb-4">The trapezoidal rule can be written as</p>
+        <p class="text-gray-600 mb-4">I = h/2 [(y<sub>0</sub> + y<sub>6</sub>) + 2 (y<sub>1</sub> + y<sub>2</sub> +
+          y<sub>3</sub> + y<sub>4</sub> + y<sub>5</sub>)]</p>
+        <p class="text-gray-600 mb-4">= 1/12 [(0.0 + 0.5) + 2 (0.14286 + 0.25 + 0.33333 + 0.4 + 0.45454)]</p>
+        <p class="text-gray-600 mb-4">I = 0.30512</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-8">
+    <h2 class="text-2xl font-bold mb-4">Simpson's 1/3 Rule</h2>
+
+    <p class="mb-4">
+      Substituting n = 2 in the general quadrature formula and neglecting the third and other higher
+      order differences, we get
+    </p>
+
+    <div class="mb-4">
+      <pre class="bg-gray-200 rounded-md">
+        <code>
+          I = h/3[y<sub>0</sub> + 4(y<sub>1</sub> + y<sub>3</sub> + y<sub>5</sub> + ……. + y<sub>n-1</sub>) + 2(y<sub>2</sub> + y<sub>4</sub> + ……. + y<sub>n-2</sub>) + y<sub>n</sub>]
+        </code>
+            </pre>
+    </div>
+
+    <p class="mb-4">
+      Similarly, if we calculate for the above example by Simpson's 1/3 rule, We get the result <b>I = 0.306830</b>,
+      which is very close to the result of Traphizoidal rule.
+    </p>
+  </div>
+
+  <div class="mb-8">
+    <h2 class="text-2xl font-bold mb-4">Simpson 3/8 Rule</h2>
+
+    <p class="mb-4">
+      Substituting n = 3 in the general quadrature formula and neglecting all the differences above
+    </p>
+
+    <div class="mb-4">
+      <pre class="bg-gray-200 rounded-md py-2">
+          I = 3h/8 [(y<sub>0</sub> + y<sub>n</sub>) + 3(y<sub>1</sub> + y<sub>2</sub> + y<sub>4</sub> + y<sub>5</sub> + … + y<sub>n-2</sub> + y<sub>n-1</sub>) + 2(y<sub>3</sub> + y<sub>6</sub> + … + y<sub>n-3</sub>)]
+      </pre>
+    </div>
+
+    <p class="mb-4">And if we calculate the above example with Simpson's 3/8 rule, we get the value <b>I=0.306805</b>
+    </p> which is again very close to the result of previous two rules!
+  </div>
+</body>
+
+</html>
